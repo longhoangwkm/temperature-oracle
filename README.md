@@ -9,16 +9,20 @@ These are the accounts running the node.js service that getting data and returns
 
 This way, if competing parties depend on the oracle to power their contracts and one of the parties (nodes) becomes rogue or tries to manipulate the result, it can't because they agreed on a predefined quorum of equal answers.
 
-> How to ensure we are decentralized and without a single point of failure? 
+> How to ensure we are decentralized and without a single point of failure?
+
 We allow multiple offchain oracle nodes to provide data, so once one of them is down, it won't affect data delivery.
 
-> How do we determine who can submit the temperature? 
+> How do we determine who can submit the temperature?
+
 We save provider data each submitting time
 
 > How can we make sure no one is submitting wrong values? 
+
 Because we use the majority mechanism, the error may occur but does not affect the calculation process.
 
 > How do we detect outliers?
+
 We can build subgraph or backend to track submit value each request by provider and visualize that information to check outliers.
 We can build a bot, checking outlier by InterQuartile range (IQR) and stastical test to detect and call `setProvider(provider, false)` to remove them out.
 
