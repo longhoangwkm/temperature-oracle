@@ -210,6 +210,8 @@ contract TemperatureOracleV1 is Ownable {
                 if (currentQuorum >= minQuorum) {
                     request.consensusTemperature = temperature;
                     request.hasConsensus = true;
+                    latestTemperature = temperature;
+                    latestUpdatedAt = block.timestamp;
 
                     emit TemperatureUpdated(requestId, temperature);
 
